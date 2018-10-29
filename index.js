@@ -19,13 +19,26 @@ function forkRepo() {
   }
 
 function showResults(json) {
-  const data = json.html_url;
+  //use this function to display the results from forking via the API
+  const myData = json.html_url;
+  document.getElementById('results').innerHTML = '<a href="' + myData + '">link</a>';
 }
-
-function createIssue() {
+ function createIssue() {
   //use this function to create an issue based on the values input in index.html
+  title = document.getElementById('title').value;
+  body = document.getElementById('body').value;
+  fetch(myFork, {
+    method : 'POST',
+    headers: {
+      Authorization: `token ${getToken()}`
+    },
+    body: JSON.stringify({"title": title, "body": body})
+  })
+    .then(getIssues);
 }
-
-function getIssues() {
+ function getIssues() {
   //once an issue is submitted, fetch all open issues to see the issues you are creating
+  fetch(myFork)
+    .then(resp => resp.json())
+    .then(json => document.getElementById("issues").append(json));
 }
