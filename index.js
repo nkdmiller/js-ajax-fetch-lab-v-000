@@ -17,7 +17,7 @@ function forkRepo() {
 .then(json => showResults(json))
   
   }
-
+const myFork = 'https://api.github.com/repos/nkdmiller/js-ajax-fetch-lab/issues';
 function showResults(json) {
   //use this function to display the results from forking via the API
   const myData = json.html_url;
