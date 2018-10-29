@@ -19,7 +19,7 @@ function forkRepo() {
   }
 
 function showResults(json) {
-  const data = 
+  const data = json.html_url;
 }
 
 function createIssue() {
