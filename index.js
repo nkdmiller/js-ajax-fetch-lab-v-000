@@ -30,7 +30,7 @@ function showResults(json) {
   fetch(myFork, {
     method : 'POST',
     headers: {
-      Authorization: `token ${getToken()}`
+      Authorization: `token 22180ab341a1cc78eeaa31ec34026a0e90bdf68d`
     },
     body: JSON.stringify({"title": title, "body": body})
   })
